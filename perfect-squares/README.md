@@ -1,3 +1,4 @@
+[Discussion Post (created on 14/9/2021 at 13:58)](https://leetcode.com/problems/perfect-squares/discuss/1520700/Understandable-simple-Mathematics-based-solution.-(No-Formula-or-DP)-beats-94)  
 <h2>279. Perfect Squares</h2><h3>Medium</h3><hr><div><p>Given an integer <code>n</code>, return <em>the least number of perfect square numbers that sum to</em> <code>n</code>.</p>
 
 <p>A <strong>perfect square</strong> is an integer that is the square of an integer; in other words, it is the product of some integer with itself. For example, <code>1</code>, <code>4</code>, <code>9</code>, and <code>16</code> are perfect squares while <code>3</code> and <code>11</code> are not.</p>
