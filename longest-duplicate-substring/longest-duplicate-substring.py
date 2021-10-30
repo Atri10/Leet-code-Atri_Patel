@@ -1,33 +1,44 @@
 class Solution:
-    def RabinKarp(self,text, M, q):
-        if M == 0: return True
-        h, t, d = (1<<(8*M-8))%q, 0, 256
-
-        dic = defaultdict(list)
-
-        for i in range(M): 
-            t = (d * t + ord(text[i]))% q
-
-        dic[t].append(i-M+1)
-
-        for i in range(len(text) - M):
-            t = (d*(t-ord(text[i])*h) + ord(text[i + M]))% q
-            for j in dic[t]:
-                if text[i+1:i+M+1] == text[j:j+M]:
-                    return (True, text[j:j+M])
-            dic[t].append(i+1)
-        return (False, "")
-
-    def longestDupSubstring(self, S):
-        beg, end = 0, len(S)
-        q = (1<<31) - 1 
-        Found = ""
-        while beg + 1 < end:
-            mid = (beg + end)//2
-            isFound, candidate = self.RabinKarp(S, mid, q)
-            if isFound:
-                beg, Found = mid, candidate
+    def longestDupSubstring(self, s: str) -> str:
+        ln=len(s)
+        
+        mod=2**63-1
+        a=ord('a')
+        arr=[ord(ch)-a for ch in s]
+        def has_duplicate_slen_substring2(slen):
+            highest_digit=(26**slen)%mod
+            #get the hash value of the first substring of length slen
+            val=0
+            for i in range(slen):
+                val=(val*26+arr[i])%mod            
+            seen=set([val])
+            
+            for i in range(slen, ln):
+                val=(val*26+arr[i]-arr[i-slen]*highest_digit)%mod
+                if val in seen:
+                    return i-slen+1 #start index of the repeat string
+                seen.add(val)
+            return 0 #not found repeat string
+                    
+        def has_duplicate_slen_substring(slen):
+            tracker=set()
+            for i in range(ln-slen+1):
+                substring=s[i:slen+i]
+                if substring in tracker:
+                    return i
+                tracker.add(substring)
+            return 0
+                
+        
+        start=0
+        lo=1 #minimal len
+        hi=ln #max len
+        while lo<hi:
+            mi=(lo+hi)//2
+            pos=has_duplicate_slen_substring(mi)
+            if pos:
+                start=pos
+                lo=mi+1
             else:
-                end = mid
-
-        return Found
+                hi=mi
+        return s[start:start+lo-1]
