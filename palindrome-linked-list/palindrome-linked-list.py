@@ -1,10 +1,22 @@
 class Solution:
-    def isPalindrome(self, head: Optional[ListNode]) -> bool:
+    def isPalindrome(self, head: Optional[ListNode]) -> bool:      
+        slow = head
+        fast = head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            
+        node = None 
         
-        arr = []
-        
-        while head:
-            arr.append(head.val)
+        while slow:
+            nxt = slow.next
+            slow.next = node
+            node = slow
+            slow = nxt
+            
+        while node:
+            if node.val != head.val : return False
+            node = node.next
             head = head.next
         
-        return arr == arr[::-1]
+        return True
