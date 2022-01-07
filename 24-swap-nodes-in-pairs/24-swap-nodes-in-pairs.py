@@ -6,7 +6,6 @@ class Solution:
         pre = dummy
         
         while pre.next and pre.next.next:
-            
             a = pre.next
             b = a.next
             pre.next,b.next,a.next = b,a,b.next
