@@ -19,14 +19,9 @@ class Solution:
         
         middle = head
         
-        for i in range(n - k%n-1):
-            middle = middle.next
-            
+        for i in range(n - k%n-1):middle = middle.next
+
         new = middle.next
         dummy.next = head
         middle.next = None
-        
         return new
-        
-        
-        
