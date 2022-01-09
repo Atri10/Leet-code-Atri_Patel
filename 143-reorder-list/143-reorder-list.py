@@ -1,20 +1,31 @@
 class Solution:
     def reorderList(self, head: Optional[ListNode]) -> None:
-        arr = []
-        temp =  head
-        while temp:
-            arr.append(temp)
-            temp = temp.next
-            
-        l = 1
-        r = len(arr) - 1
         
-        for i in range(len(arr)):
-            if i & 1 :
-                head.next = arr[l]
-                l += 1
-            else :
-                head.next = arr[r]
-                r -= 1
+        def middle(head):
+            slow,fast = head,head
+            while fast and fast.next:
+                slow = slow.next
+                fast = fast.next.next
+            return slow
+        
+        def revreslist(head):
+            prev = None
+            while head:
+                nxt_node = head.next
+                head.next = prev
+                prev , head = head, nxt_node
+            return prev
+        
+        if not head or not head.next : return
+        
+        left = head.next
+        right = revreslist(middle(head))
+        i = 0
+        
+        while left != right:
+            if i&1:head.next , left = left, left.next
+            else: head.next , right = right, right.next  
             head = head.next
-        head.next = None
+            i += 1
+            
+            
