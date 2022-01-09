@@ -14,5 +14,6 @@ class Solution:
                 
             stack.append([cur_val,idx])
             head = head.next
-            idx += 1    
+            idx += 1 
+            
         return ans
