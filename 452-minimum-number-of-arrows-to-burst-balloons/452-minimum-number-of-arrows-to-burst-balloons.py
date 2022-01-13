@@ -3,8 +3,8 @@ class Solution:
         points.sort(key = lambda x : x[1])
         prev = -float('inf')
         count = 0
-        for (x,y) in points:
-            if x > prev : 
+        for p in points:
+            if p[0] > prev : 
                 count += 1
-                prev = y
+                prev = p[1]
         return count
