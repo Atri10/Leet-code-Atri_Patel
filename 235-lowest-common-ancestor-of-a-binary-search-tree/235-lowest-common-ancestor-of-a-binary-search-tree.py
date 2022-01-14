@@ -12,8 +12,12 @@ class Solution:
         small = min(p.val, q.val)
         
         while root : 
-            if root.val > big:root = root.left
-            elif root.val < small:root = root.right
+            if root.val > big:
+                root = root.left
+                
+            elif root.val < small:
+                root = root.right
+                
             else: return root
             
         return None
