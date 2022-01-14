@@ -1,7 +1,5 @@
 class Solution:
     def minimumAbsDifference(self, arr: List[int]) -> List[List[int]]:
-        
-        
         arr.sort()
         ans = []
         minn = float('inf')        
@@ -17,5 +15,4 @@ class Solution:
             elif minn == diff : 
                 ans.append([a,b])
             
-        
         return ans
