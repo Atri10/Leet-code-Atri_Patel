@@ -1,6 +1,5 @@
 class Solution:
     def findTarget(self, root: Optional[TreeNode], k: int) -> bool:
-        
         arr = []
         
         def towsum(arr):
@@ -11,9 +10,6 @@ class Solution:
                 x = k - i
                 if x in dic : return True
                 else : dic[i] = True
-            
-            print(dic)
-            
             return False
                     
         def rec(root):
@@ -23,5 +19,4 @@ class Solution:
                 rec(root.right)
                 
         rec(root)
-        
         return towsum(arr)
