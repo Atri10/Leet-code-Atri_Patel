@@ -3,6 +3,8 @@ class Solution:
         def rec(n):
             x = str(n)
             s = sum([int(i) for i in x])
-            if s < 10 : return s
-            return rec(s)
+            if s < 10 : 
+                return s
+            else:
+                return rec(s)
         return rec(num)
