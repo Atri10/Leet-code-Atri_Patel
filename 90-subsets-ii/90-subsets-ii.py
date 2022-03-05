@@ -19,4 +19,4 @@ class Solution:
             
         
         sub(0)
-        return sorted(subsets)
+        return subsets
