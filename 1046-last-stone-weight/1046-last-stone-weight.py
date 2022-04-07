@@ -1,8 +1,7 @@
 class Solution:
     def lastStoneWeight(self, stones: List[int]) -> int:
         
-        if len(stones) == 1 :
-            return sum(stones)
+        if len(stones) == 1 :return stones[0]
         
         stones.sort()
         
@@ -32,12 +31,9 @@ class Solution:
         y = stones[-2]  
         
         if x > y:
-                stones[-2] = x - y
-                stones[-1] = 0
-            
-        elif x == y:
-                stones[-1] = 0
-                stones[-2] = 0
+                return x-y
+        
+        return 0
                 
-        return sum(stones)
+
         
