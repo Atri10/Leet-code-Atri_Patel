@@ -30,7 +30,6 @@ class Solution:
             
         x = stones[-1]
         y = stones[-2]  
-        print(stones)
         
         if x > y:
                 stones[-2] = x - y
@@ -40,7 +39,5 @@ class Solution:
                 stones[-1] = 0
                 stones[-2] = 0
                 
-        print(stones)
-        
         return sum(stones)
         
