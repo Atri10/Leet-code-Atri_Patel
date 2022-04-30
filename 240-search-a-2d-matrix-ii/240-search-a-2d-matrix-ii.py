@@ -11,10 +11,5 @@ class Solution:
                 else:r = mid - 1
             return -1
         
-        
         for i in matrix:
             if BS(i,target) != -1 : return True
-                    
-                    
-                
-                
