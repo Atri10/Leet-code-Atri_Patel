@@ -12,4 +12,5 @@ class Solution:
             return -1
         
         for i in matrix:
-            if BS(i,target) != -1 : return True
+            if BS(i,target) != -1 : 
+                return True
