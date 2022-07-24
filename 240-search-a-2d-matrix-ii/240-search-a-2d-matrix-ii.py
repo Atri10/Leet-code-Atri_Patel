@@ -1,16 +1,22 @@
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
         
-        def BS(arr,val): 
-            l = 0
-            r = len(arr) - 1     
-            while r >= l:
-                mid = (l+r) // 2
-                if arr[mid] == val :return mid 
-                if arr[mid] < val:l = mid + 1
-                else:r = mid - 1
-            return -1
+        rlen = len(matrix[0])-1
         
-        for i in matrix:
-            if BS(i,target) != -1 : 
+        def BS(row):
+            l = 0
+            r = rlen
+            while l <= r:
+                mid = (l+r)//2
+                cuel = row[mid]
+                if cuel == target : return True
+                elif cuel > target: r = mid - 1
+                else: l = mid + 1
+            
+            return False
+        
+        
+        
+        for row in matrix:
+            if BS(row):
                 return True
