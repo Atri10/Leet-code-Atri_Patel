@@ -1,2 +1,7 @@
 class Solution:
-    def isAnagram(self, s: str, t: str) -> bool:return collections.Counter(s) == collections.Counter(t)
+    def isAnagram(self, s: str, t: str) -> bool:
+        s = list(s)
+        t = list(t)
+        s.sort()
+        t.sort()
+        return s==t
