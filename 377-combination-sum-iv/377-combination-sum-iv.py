@@ -15,10 +15,8 @@ class Solution:
             res = 0
             
             for k in range(len(nums)):
-                if target - nums[k] >= 0:
-                    target -= nums[k]
-                    res += back(nums,k,target)
-                    target += nums[k]
+                if target - nums[k] >= 0:   
+                    res += back(nums,k,target - nums[k] )
             
             memo[target] = res
             return memo[target]
