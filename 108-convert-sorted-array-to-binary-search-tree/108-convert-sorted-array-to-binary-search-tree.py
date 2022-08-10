@@ -7,12 +7,17 @@
 class Solution:
     def sortedArrayToBST(self, nums: List[int]) -> Optional[TreeNode]:
         
-        def rec(l,r):
-            m = (l+r)//2
-            if l>r : return None
-            root = TreeNode(nums[m])
-            root.left = rec(l,m-1)
-            root.right = rec(m+1,r)
-            return root
         
-        return rec(0,len(nums)-1)
+        if not nums:
+            return None
+        
+        left = 0
+        right = len(nums)-1
+        mid =(left + right)//2
+        
+        root = TreeNode(nums[mid])
+        
+        root.left = self.sortedArrayToBST(nums[:mid])
+        root.right = self.sortedArrayToBST(nums[mid+1:])
+        
+        return root
