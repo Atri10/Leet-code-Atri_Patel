@@ -3,11 +3,9 @@ class Solution:
         
         dic = {}
         ans = {}
-        for i in nums1:
-            dic[i] = 0
+        for i in nums1:dic[i] = 0
             
         for i in nums2:
-            if i in dic:
-                ans[i] = 0
+            if i in dic:ans[i] = 0
                 
         return list(ans.keys())
