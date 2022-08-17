@@ -23,5 +23,4 @@ class Solution:
                 dic[m_word] = True
                 ans += 1
                 
-        print(dic)
         return ans
