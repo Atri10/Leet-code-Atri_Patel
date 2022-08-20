@@ -1,12 +1,21 @@
 class Solution:
-    def sortColors(self, nums: List[int]) -> None:    
-        zero = 0
-        one =  0
-        two = 0
-        for i in nums:
-            if i == 0 : zero += 1
-            if i == 1 : one += 1
-            if i == 2 : two += 1
-        for i in range(zero):nums[i] = 0
-        for i in range(zero,zero+one):nums[i] = 1
-        for i in range(zero+one,two+one+zero):nums[i] = 2
+    def sortColors(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        
+        dic = {
+            0 : 0,
+            1 : 0,
+            2 : 0
+        }
+        
+        for i in nums:dic[i] += 1
+            
+        for i in range(dic[0]):nums[i] = 0
+            
+        for i in range(dic[0],dic[1] + dic[0]):nums[i] = 1
+            
+        for i in range(dic[1] + dic[0],dic[2] + dic[1] + dic[0]):nums[i] = 2
+        
+        
