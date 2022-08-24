@@ -1,10 +1,19 @@
 class Solution:
     def isPowerOfThree(self, n: int) -> bool:
         
-        def rec(n):
-            if n == 0 : return False
-            if n == 1 or n == 3: return True
-            if n % 3 != 0 : return False
-            return rec(n // 3)
+        y = 0
+        x = 0
+        while True:
+            x = 3 ** y
+            if x == n:
+                return True
             
-        return rec(n)
+            if x > n:
+                return False
+            
+            print(x)
+            
+            if n > 1:
+                y += 1
+            else:
+                y -= 1
