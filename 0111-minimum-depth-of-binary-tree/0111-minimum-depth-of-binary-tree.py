@@ -1,8 +1,4 @@
-from functools import cache
-
 class Solution:
-    
-    @cache
     def minDepth(self, root: Optional[TreeNode]) -> int:
         
         if not root:
